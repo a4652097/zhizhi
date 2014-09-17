@@ -1,0 +1,19 @@
+= link_to '新建文章',new_article_path
+table.table-bordered.table-hover.table-striped
+  thead
+    th.col-md-3 文章编号
+    th.col-md-3 文章标题
+    th.col-md-3 文章内容
+    th.col-md-3 文章分类
+    th.col-md-3 操作
+  tbody
+    - @article.each do |a|
+      tr
+        td= a.id
+        td= a.title
+        -if a.content.length<50
+          td= a.content
+        -else
+          td= a.content[0..50] +'...'
+        td= a.category.name
+        td

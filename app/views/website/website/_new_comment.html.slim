@@ -1,0 +1,6 @@
+= form_for(:comment, url:{action: 'new_comment'}) do |c|
+  .form-group
+    =c.text_area :content,class:'form-control'
+    = c.text_field :article_id, type:"hidden",value: "#{@article.id}" 
+  .form-group
+    =c.submit '评论'
