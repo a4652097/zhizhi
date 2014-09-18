@@ -6,6 +6,7 @@ table.table-bordered.table-hover.table-striped
     th.col-md-3 文章内容
     th.col-md-3 文章分类
     th.col-md-3 操作
+    th.col-md-3
   tbody
     - @article.each do |a|
       tr
@@ -16,4 +17,5 @@ table.table-bordered.table-hover.table-striped
         -else
           td= a.content[0..50] +'...'
         td= a.category.name
-        td
+        td= link_to '修改',edit_article_path(a.id)
+        td= link_to '删除',a,method: :delete

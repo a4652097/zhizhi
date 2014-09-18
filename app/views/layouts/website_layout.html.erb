@@ -7,13 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body style="background-color:#F0F0F0;">
-<div class="container">
-<div class="col-md-3">
-  <%=render 'website/website/website_sidebar'%>
+<div style="background-color:#ffffff;height:50px;">
+<img src="/logo.png" id="logo">
+<%= link_to '首页',website_website_index_path,:id=>'index'%>
+<form class="navbar-form navbar-left" role="search" style="padding-left: 640px;">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="搜索内容">
+  </div>
+  <button type="submit" class="btn btn-default" >搜索</button>
+</form>
 </div>
+<div class="container" style="padding-top: 30px;">
 <div class="col-md-9">
 <%= yield %>
 </div>
+<div class="col-md-3">
+  <%=render 'layouts/website_sidebar'%>
+</div>
+
 </div>
 </body>
 </html>

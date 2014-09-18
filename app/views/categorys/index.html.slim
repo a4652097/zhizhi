@@ -1,0 +1,13 @@
+= link_to '新建类别',new_category_path
+table.table-bordered.table-hover.table-striped
+  thead
+    th.col-md-3 类别编号
+    th.col-md-3 类别名
+    th.col-md-3 操作
+  tbody
+    - @category.each do |c|
+      tr
+        td = c.id
+        td = c.name
+        td = link_to '修改',edit_category_path(c.id)
+        td = link_to '删除',c,method: :delete

@@ -1,13 +1,14 @@
-- if @category.article.present?
-  - @category.article.each do |article|
-    label 标题：
-    = link_to "#{article.title}", website_website_show_article_path(article.id)
-    br
-    labrl 内容:
-    - if article.content.length<150
-      = article.content
-    -else
-      = article.content[0..150] +'...'
-    hr
-- else
-  | 没有文章哦!!!
+div id="article"
+  - if @category.article.present?
+    - @category.article.each do |article|
+      label 标题：
+      = link_to "#{article.title}", website_website_show_article_path(article.id)
+      br
+
+      - if article.content.length<150
+        = article.content
+      -else
+        = article.content[0..150] +'...'
+      hr
+  - else
+    | 没有文章哦!!!

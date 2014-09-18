@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'comments/index'
 
   root 'articles#index'
-  resources :blogs
+  resources :categorys
   resources :articles
   namespace :website do
     resources :website do

@@ -1,0 +1,8 @@
+-if @article.comment.present?
+  - @article.comment.each do |c|
+    .panel.panel-info
+      .panel-heading = c.created_at
+      .panel-body = c.content
+    br
+- else
+  | 没有评论
