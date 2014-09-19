@@ -1,4 +1,4 @@
-div style="width:250px; solid;height:829px;background-color:#ffffff;"
+div style="width:250px; solid;height:1029px;background-color:#ffffff;"
   img src="/touxiang.png" style="padding-left: 26px;padding-top: 26px;"
   p id="title" 博主信息
   p 大名余龙飞,95年出生
@@ -8,3 +8,16 @@ div style="width:250px; solid;height:829px;background-color:#ffffff;"
     img src="/category.png"
     - @categories.each do |c|
       li role="presentation" = link_to "#{c.name}",website_website_path(c.id)
+    img src="/friendship.png"
+    br
+    br
+    a href="https://ruby-china.org"
+      img src= "/ruby-china-logo.png"
+    br
+    br
+    a href="http://www.bilibili.com"
+      img src= "/bilibili.png"
+    br
+    br
+    br
+    img src="/friend.png"

@@ -1,7 +1,7 @@
 class Website::WebsiteController < Website::ApplicationController
   before_action :set_categories
   def index
-    @article = Article.all
+    @article = Article.paginate(:page => params[:page], :per_page => 5).reorder(created_at: :desc)
   end
   def new_comment
    @comment = Comment.new(comment_params)
