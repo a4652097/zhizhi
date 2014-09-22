@@ -2,16 +2,15 @@ div
   img src="/1.png" id="top"
     - @article.each do |article|
       div id="article"
-        = link_to "#{article.title}", website_website_show_article_path(article.id),:id=>'article_title'
+        = link_to "#{article.title}", website_website_show_article_path(article.id),:id=>'article_title','data-no-turbolink' => true
         br
         = article.created_at
         br
         br
-        - if article.content.length<150
-          = article.content
+        - if article.content.length<100
+          = raw article.content
         -else
-          = article.content[0..150] +'...'
+          = raw article.content[0..100] +'...'
         br
-        / = button_to "查看文章", website_website_show_article_path(article.id)
-
-    = will_paginate @article, renderer: BootstrapPagination::Rails
+        br
+    = paginate @article

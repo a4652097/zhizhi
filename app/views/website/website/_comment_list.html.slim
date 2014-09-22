@@ -2,7 +2,7 @@
   - @article.comment.each do |c|
     .panel.panel-info
       .panel-heading = c.created_at
-      .panel-body = c.content
+      .panel-body = raw c.content
     br
 - else
   | 没有评论

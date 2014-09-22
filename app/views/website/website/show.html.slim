@@ -8,9 +8,9 @@ div
         br
         br
         - if article.content.length<150
-          = article.content
+          = raw article.content
         -else
-          = article.content[0..150] +'...'
+          = raw article.content[0..150] +'...'
           br
         = will_paginate @articles, renderer: BootstrapPagination::Rails
   - else
