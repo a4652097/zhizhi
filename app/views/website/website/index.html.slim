@@ -12,6 +12,6 @@ div
         -else
           = article.content[0..150] +'...'
         br
-        = button_to "查看文章", website_website_show_article_path(article.id)
+        / = button_to "查看文章", website_website_show_article_path(article.id)
 
     = will_paginate @article, renderer: BootstrapPagination::Rails
