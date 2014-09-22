@@ -21,7 +21,8 @@ class CategorysController < ApplicationController
     if@category.save
     redirect_to root_path
     else
-    flash[:error] = "添加失败"
+    flash.now[:notice] = "添加失败"
+
     redirect_to new_category_path
     end
   end
@@ -30,7 +31,7 @@ class CategorysController < ApplicationController
     if@category = Category.find_by_id(params[:id]).update(category_params)
     redirect_to root_path
     else
-    flash[:error] = "修改失败"
+    flash.now[:notice] = "修改失败"
     redirect_to edit_category_path
     end
   end
