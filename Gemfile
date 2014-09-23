@@ -3,9 +3,6 @@ gem 'slim-rails'
 gem 'slim'
 gem 'bootstrap-sass'
 gem 'will_paginate-bootstrap'
-group :production do
-    gem "pg"
-end
 gem 'kaminari'
 gem 'rails_kindeditor'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

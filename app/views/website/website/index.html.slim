@@ -1,5 +1,7 @@
 div
   img src="/1.png" id="top"
+  -if @article.present?
+    = paginate @article
     - @article.each do |article|
       div id="article"
         = link_to "#{article.title}", website_website_show_article_path(article.id),:id=>'article_title','data-no-turbolink' => true
@@ -11,6 +13,6 @@ div
           = raw article.content
         -else
           = raw article.content[0..100] +'...'
-        br
-        br
-    = paginate @article
+  -else
+    |没有文章！
+
