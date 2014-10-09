@@ -10,14 +10,14 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to root_path
+      redirect_to articles_path
     else
       redirect_to new_article_path
   end
 end
   def destroy
     @article.destroy
-    redirect_to root_path
+    redirect_to articles_path
   end
 
   def edit
@@ -26,7 +26,7 @@ end
 
   def update
     if@article = Article.find_by_id(params[:id]).update(article_params)
-      redirect_to root_path
+      redirect_to articles_path
     else
       redirect_to edit_article
     end

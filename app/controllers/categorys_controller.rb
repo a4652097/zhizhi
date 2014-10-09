@@ -6,7 +6,7 @@ class CategorysController < ApplicationController
 
   def destroy
     @category.destroy
-    redirect_to root_path
+    redirect_to articles_path
   end
 
   def new
@@ -29,7 +29,7 @@ class CategorysController < ApplicationController
 
   def update
     if@category = Category.find_by_id(params[:id]).update(category_params)
-    redirect_to root_path
+    redirect_to articles_path
     else
     flash.now[:notice] = "修改失败"
     redirect_to edit_category_path

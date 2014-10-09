@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'comments/index'
 
-  root 'articles#index'
+  root 'website/website#index'
   resources :categorys
   resources :articles
   namespace :website do
