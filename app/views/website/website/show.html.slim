@@ -12,6 +12,7 @@ div
         -else
           = raw article.content[0..150] +'...'
           br
-        = will_paginate @articles, renderer: BootstrapPagination::Rails
+
+    = paginate @articles
   - else
     | 没有文章哦!!!

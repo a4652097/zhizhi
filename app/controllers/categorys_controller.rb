@@ -1,7 +1,7 @@
 class CategorysController < ApplicationController
-  before_action :get_id,only:[:edit,:destroy]
+  before_action :set_category,only:[:edit,:destroy]
   def index
-    @category = Category.all
+    @categorys = Category.all
   end
 
   def destroy
@@ -19,10 +19,8 @@ class CategorysController < ApplicationController
   def create
     @category = Category.new(category_params)
     if@category.save
-    redirect_to root_path
+    redirect_to articles_path
     else
-    flash.now[:notice] = "添加失败"
-
     redirect_to new_category_path
     end
   end
@@ -31,17 +29,18 @@ class CategorysController < ApplicationController
     if@category = Category.find_by_id(params[:id]).update(category_params)
     redirect_to articles_path
     else
-    flash.now[:notice] = "修改失败"
     redirect_to edit_category_path
     end
   end
 
   private
+
   def category_params
     params.require(:category).permit(:name)
   end
 
-  def get_id
-    @category=Category.find(params[:id])
+  def set_category
+    @category = Category.find(params[:id])
   end
+
 end

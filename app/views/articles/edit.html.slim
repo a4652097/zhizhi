@@ -1,12 +1,3 @@
-= form_for @article do |a|
-  .form-group
-  /   lable 文章类别
-  /   = a.select(:category_id, @categories.map{|c| [c.name,c.id]}, {} ,{class:"form-control"})
-  / .form-group
-    lable 文章标题
-    = a.text_field :title, class:"form-control"
-  .form-group
-    lable 文章内容
-    =a.kindeditor :content, :allowFileManager => false
-  .form-group
-    = a.submit '保存',class:"btn btn-info"
+p 修改文章
+
+=render 'form'

@@ -5,7 +5,12 @@ Rails.application.routes.draw do
 
   root 'website/website#index'
   resources :categorys
-  resources :articles
+
+  resources :articles do
+    get 'show_comment'
+    post 'destroy_comment'
+  end
+
   namespace :website do
     resources :website do
       get 'show_article'

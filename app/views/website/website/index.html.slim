@@ -1,8 +1,8 @@
 div
   img src="/1.png" id="top"
-  -if @article.present?
-    = paginate @article
-    - @article.each do |article|
+  -if @articles.present?
+    = paginate @articles
+    - @articles.each do |article|
       div id="article"
         = link_to "#{article.title}", website_website_show_article_path(article.id),:id=>'article_title','data-no-turbolink' => true
         br

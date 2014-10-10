@@ -6,16 +6,23 @@ table.table-bordered.table-hover.table-striped
     th.col-md-3 文章内容
     th.col-md-3 文章分类
     th.col-md-3 操作
-    th.col-md-3
+
   tbody
-    - @article.each do |a|
+    - @articles.each do |a|
       tr
-        td= a.id
-        td= a.title
+        td = a.id
+        td = a.title
         -if a.content.length<50
-          td= a.content
+          td = a.content
         -else
-          td= a.content[0..50] +'...'
-        td= a.category.name
-        td= link_to '修改',edit_article_path(a.id),'data-no-turbolink' => true
-        td= link_to '删除',a,method: :delete
+          td = a.content[0..50] +'...'
+        td = a.category.name
+        td
+          .btn-group
+            button.btn.btn-default.btn-xs.dropdown-toggle type="button" data-toggle="dropdown"
+              span.span.glyphicon.glyphicon-cog
+            ul.dropdown-menu.pull-right role="menu"
+              li = link_to '修改',edit_article_path(a.id),'data-no-turbolink' => true
+              li = link_to '删除',a,method: :delete
+              li = link_to '删除文章评论',article_show_comment_path(a.id)
+
