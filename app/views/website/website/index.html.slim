@@ -8,6 +8,8 @@ div
         br
         = article.created_at
         br
+        |分类:
+        = article.category.name
         br
         - if article.content.length<100
           = raw article.content

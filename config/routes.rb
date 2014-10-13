@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :articles do
     get 'show_comment'
-    post 'destroy_comment'
+    get 'destroy_comment'
   end
 
   namespace :website do

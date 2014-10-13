@@ -40,7 +40,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy_comment
-     @articles = Article.find_by_id(params[:article_id])
+    @comment = Comment.find(params[:comment_id])
+    @comment.destroy
+    redirect_to articles_path
   end
 
   private
@@ -50,7 +52,7 @@ class ArticlesController < ApplicationController
   end
 
   def set_article
-      @article = Article.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
 end
