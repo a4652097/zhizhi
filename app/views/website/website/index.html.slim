@@ -1,20 +1,4 @@
 div
-  img src="/1.png" id="top"
-  -if @articles.present?
-    = paginate @articles
-    - @articles.each do |article|
-      div id="article"
-        = link_to "#{article.title}", website_website_show_article_path(article.id),:id=>'article_title','data-no-turbolink' => true
-        br
-        = article.created_at
-        br
-        |分类:
-        = article.category.name
-        br
-        - if article.content.length<100
-          = raw article.content
-        -else
-          = raw article.content[0..100] +'...'
-  -else
-    |没有文章！
+  = image_tag "2938152_38.gif", height: '350', width: '820'
+  = render 'articles'
 

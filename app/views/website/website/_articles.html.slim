@@ -1,0 +1,23 @@
+div
+  - if @articles.present?
+    - @articles.each do |article|
+      div class="panel panel-default"
+        div class="panel-body"
+        h4
+          = link_to "#{article.title}", website_website_show_article_path(article.id),'data-no-turbolink' => true
+          span class="label label-danger"   New
+        p
+          = article.created_at.to_time.strftime('%Y-%m-%d %H:%M:%S')
+          |--分类：
+          = link_to "#{article.category.name}",website_website_path(article.category.id)
+        - if article.content.length<100
+          = raw article.content
+        -else
+          = raw article.content[0..100] +'...'
+          br
+          br
+          |评论：
+          span.badge 2
+    = paginate @articles
+  - else
+    | 没有文章哦!!

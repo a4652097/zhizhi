@@ -5,19 +5,20 @@ div style="width:250px; solid;height:1029px;background-color:#ffffff;"
   p id="title"最近开始学习rails,喜欢上rails
   p id="title"因养了只仓鼠故本博名为吱吱博客.
   ul.nav.nav-pills.nav-stacked role="tablist" style="padding-top: 30px;"
-    img src="/category.png"
+    = image_tag "category.png"
     - @categories.each do |c|
       li role="presentation" = link_to "#{c.name}",website_website_path(c.id)
-    img src="/friendship.png"
+    = image_tag "friendship.png"
     br
     br
     a href="https://ruby-china.org"
-      img src= "/ruby-china-logo.png"
+      = image_tag "ruby-china-logo.png"
     br
     br
     a href="http://www.bilibili.com"
-      img src= "/bilibili.png"
+      = image_tag "bilibili.png"
+
     br
     br
     br
-    img src="/friend.png"
+    = image_tag "friend.png"
