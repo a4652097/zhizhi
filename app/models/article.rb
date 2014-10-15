@@ -3,4 +3,5 @@ class Article < ActiveRecord::Base
   has_many :comment,inverse_of: :article
   validates :title,:content, presence: true
 
+  scope :keyword, -> (keyword) { where('title like ?', "%#{keyword}%") }
 end
