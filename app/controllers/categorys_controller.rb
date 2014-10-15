@@ -1,5 +1,6 @@
 class CategorysController < ApplicationController
   before_action :set_category,only:[:edit,:destroy]
+  before_action :authenticate_model!
   def index
     @categorys = Category.all
   end

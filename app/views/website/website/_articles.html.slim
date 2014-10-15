@@ -17,7 +17,7 @@ div
           br
           br
           |评论：
-          span.badge = raw article.comment.map { |comment| comment.content }.size
+          span.badge = article.comment.pluck(:content).size
     = paginate @articles
   - else
     | 没有文章哦!!

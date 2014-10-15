@@ -1,0 +1,6 @@
+= form_tag website_website_index_path, method: :get do
+ .input-group
+   = text_field_tag :keyword, params[:keyword], placeholder: '关键字', class: 'form-control'
+   span.input-group-btn
+     button.btn.btn-success type="submit"
+       span.glyphicon.glyphicon-search

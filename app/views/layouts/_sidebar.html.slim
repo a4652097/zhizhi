@@ -1,4 +1,10 @@
-ul.nav.nav-pills.nav-stacked role="tablist"
-  li.active role="presentation" = link_to '回到首页', website_website_index_path
-  li role="presentation" = link_to '类别管理', categorys_path
-  li role="presentation" = link_to '文章管理', articles_path
+- if model_signed_in?
+  ul.nav.nav-pills.nav-stacked role="tablist"
+    li.active role="presentation" = link_to '回到首页', website_website_index_path
+    li role="presentation" = link_to '注销登陆',destroy_model_session_path,method: :delete
+    li role="presentation" = link_to '类别管理', categorys_path
+    li role="presentation" = link_to '文章管理', articles_path
+- else
+
+
+
