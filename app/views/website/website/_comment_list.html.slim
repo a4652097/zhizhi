@@ -1,9 +1,12 @@
 -if @article.comment.present?
   - @article.comment.each do |c|
     .panel.panel-info
-      .panel-heading = c.created_at
-      |游客:
-      .panel-body = raw c.content
+      .panel-heading = c.created_at.to_time.strftime('%Y-%m-%d %H:%M:%S')
+      .panel-body
+      = image_tag 'head.png',height:'50',whith:'50'
+      = raw c.content
+
     br
+
 - else
   | 没有评论
